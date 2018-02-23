@@ -4,24 +4,8 @@ mongoose.connect('mongodb://localhost/blog_demo2');
 // USER - email, name
 // POST - title, content
 
-var postSchema = new mongoose.Schema({
-    title: String,
-    content: String
-});
-var Post = mongoose.model('Post', postSchema);
-
-var userSchema = new mongoose.Schema({
-   email: String,
-   name: String,
-   posts: [
-       {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Post"
-        }
-    ]
-});
-var User = mongoose.model('User', userSchema);
-
+var Post = require('./models/post');
+var User = require('./models/user');
 
 
 // var newUser = new User({
